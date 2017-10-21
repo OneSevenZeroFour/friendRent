@@ -32080,7 +32080,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n         \t.header{\n         \t\t  \n\t\t\t    top: 0;\n\t\t\t    padding: 0;\n\t\t\t    text-align: center;\n\t\t\t    font-size: 2.0em;\n\t\t\t    width:100%;\n\t\t\t    height:58px;\n\t\t\t    background-color: #474a4f;\n    \t\t\tcolor: #fff;\n    \t\t\ttext-align:center;\n    \t\t\tline-height:58px\n         \t}\n            \n        "], ["\n         \t.header{\n         \t\t  \n\t\t\t    top: 0;\n\t\t\t    padding: 0;\n\t\t\t    text-align: center;\n\t\t\t    font-size: 2.0em;\n\t\t\t    width:100%;\n\t\t\t    height:58px;\n\t\t\t    background-color: #474a4f;\n    \t\t\tcolor: #fff;\n    \t\t\ttext-align:center;\n    \t\t\tline-height:58px\n         \t}\n            \n        "]);
+var _templateObject = _taggedTemplateLiteral(["\n            body,ul,li,div{margin:0;padding:0}\n         \t.header{\n         \t\t  \n\t\t\t    top: 0;\n\t\t\t    padding: 0;\n\t\t\t    text-align: center;\n\t\t\t    font-size: 2.0em;\n\t\t\t    width:100%;\n\t\t\t    height:78px;\n\t\t\t    background-color: #474a4f;\n    \t\t\tcolor: #fff;\n    \t\t\ttext-align:center;\n    \t\t\tline-height:78px\n         \t}\n            \n            .section ul li{\n                padding-left:30px;\n                list-style:none;\n                border-bottom:2px solid gray;\n                height:100px;\n                line-height:100px;\n                font-size:1.3em;\n                color:gray;\n                position:relative\n            }\n            .glyphicon-chevron-right{\n                position:absolute;\n                right:60px;\n                top:40px;\n            }\n            \n        "], ["\n            body,ul,li,div{margin:0;padding:0}\n         \t.header{\n         \t\t  \n\t\t\t    top: 0;\n\t\t\t    padding: 0;\n\t\t\t    text-align: center;\n\t\t\t    font-size: 2.0em;\n\t\t\t    width:100%;\n\t\t\t    height:78px;\n\t\t\t    background-color: #474a4f;\n    \t\t\tcolor: #fff;\n    \t\t\ttext-align:center;\n    \t\t\tline-height:78px\n         \t}\n            \n            .section ul li{\n                padding-left:30px;\n                list-style:none;\n                border-bottom:2px solid gray;\n                height:100px;\n                line-height:100px;\n                font-size:1.3em;\n                color:gray;\n                position:relative\n            }\n            .glyphicon-chevron-right{\n                position:absolute;\n                right:60px;\n                top:40px;\n            }\n            \n        "]);
 
 var _react = __webpack_require__(0);
 
@@ -32139,22 +32139,34 @@ var Cmore = function (_React$Component) {
                             _react2.default.createElement(
                                 "li",
                                 null,
-                                "\u6536\u5230\u7684\u8BC4\u8BBA"
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-info-sign" }),
+                                " \xA0\u6536\u5230\u7684\u8BC4\u8BBA ",
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-chevron-right" }),
+                                " "
                             ),
                             _react2.default.createElement(
                                 "li",
                                 null,
-                                "\u5206\u7C7B\u53CA\u6807\u7B7E"
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-th-list" }),
+                                " \xA0 \u5206\u7C7B\u53CA\u6807\u7B7E ",
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-chevron-right" }),
+                                " "
                             ),
                             _react2.default.createElement(
                                 "li",
                                 null,
-                                "\u53D1\u73B0"
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-search" }),
+                                "  \xA0\u53D1\u73B0 ",
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-chevron-right" }),
+                                " "
                             ),
                             _react2.default.createElement(
                                 "li",
                                 null,
-                                "\u6570\u636E\u6392\u884C\u699C"
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-barcode" }),
+                                "  \xA0\u6570\u636E\u6392\u884C\u699C ",
+                                _react2.default.createElement("span", { className: "glyphicon glyphicon-chevron-right" }),
+                                " "
                             )
                         )
                     )
