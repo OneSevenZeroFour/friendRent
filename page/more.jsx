@@ -5,6 +5,7 @@ import { Route , Link } from "react-router-dom"
 import styled from "styled-components"
 
 import Footer from "../components/footer.jsx"
+import Cmore from "../components/Cmore.jsx"
 
 class Home extends React.Component {
     constructor(props){
@@ -22,6 +23,7 @@ class Home extends React.Component {
             position:relative;
         `
         return (<Title>
+                <Cmore/>
                 <Footer/>
             </Title>)
     }
