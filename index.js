@@ -11,11 +11,15 @@ import More from "./page/more.jsx"
 import Me from "./page/me.jsx"
 
 
+
+
+
+
 ReactDOM.render(
         <Router>
             <Provider store={store}>
                 <div>
-                    <Home />
+                  
                     <Route exact path="/home" component = {Home}></Route>
                     <Route  path="/show" component = {Show}></Route>
                     <Route  path="/more" component = {More}></Route>
