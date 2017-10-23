@@ -17,12 +17,14 @@ module.exports = {
         },{
             test:/\.css$/,
             loader:"css-loader!style-loader"
-        }
-        ]
+        }, {
+            test: /\.scss$/,
+            loader: 'style-loader!css-loader!sass-loader'
+        }]
     },
     watch:true,
     devServer:{
-        contentBase:"/public",
+        contentBase:"/src",
         inline:true,
         port:54321
     }

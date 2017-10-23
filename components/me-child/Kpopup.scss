@@ -1,0 +1,71 @@
+.Kcover {
+    background-color: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    .Kbox {
+        position: absolute;
+        bottom: 0;
+        height: 300px;
+        width: 100%;
+        background-color: #474a4f;
+        margin-bottom: 52px;
+        .Kclose {
+            float: right;
+            color: #999;
+            padding: 20px;
+        }
+        .Klogo {
+            width: 70px;
+            height: 70px;
+            background-color: #fff;
+            border-radius: 50%;
+            padding: 2px;
+            margin: 50px auto;
+            margin-bottom: 20px;
+            img {
+                width: 66px;
+                height: 66px;
+            }
+        }
+        .Ktips {
+            color: #ff5252;
+            font-size: 14px;
+            text-align: center;
+        }
+        .Kinput-box {
+            matgin-top: 20px;
+            padding-top: 20px;
+            .Kinput {
+                background-color: transparent;
+                outline: none;
+                display: block;
+                width: 250px;
+                margin: 0 auto;
+                height: 30px;
+                border: none;
+            }
+            .Kline,
+            .Kline-focus {
+                width: 250px;
+                display: block;
+                margin: 0 auto;
+            }
+            .Kbtn {
+                background-color: #ff5252;
+                color: #fff;
+                width: 250px;
+                height: 40px;
+                display: block;
+                margin: 0 auto;
+                border: none;
+                outline: none;
+                margin-top: 20px;
+            }
+        }
+    }
+}
