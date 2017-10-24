@@ -16,7 +16,7 @@ import Footer from "../components/footer.jsx"
 class Cmore extends React.Component {
     constructor(props){
         super(props);
-        this.goTwo = function(e){
+        this.goTwo = function(e){ 
         	
         	if(e.target.getAttribute('id') == 'pl'){
 
@@ -56,9 +56,10 @@ class Cmore extends React.Component {
                 height:100px;
                 line-height:100px;
                 font-size:1.3em;
-                color:gray;
-                position:relative
+                position:relative;
+
             }
+            .section ul li a{color:gray}
             .glyphicon-chevron-right{
                 position:absolute;
                 right:60px;

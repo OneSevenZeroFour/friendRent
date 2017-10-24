@@ -9,6 +9,7 @@ import Cmorefl from "../components/Cmore_fl.jsx"
 import Cmorefx from "../components/Cmore_fx.jsx"
 import Cmorepl from "../components/Cmore_pl.jsx"
 import Cmoresj from "../components/Cmore_sj.jsx"
+import Cmoreper from "../components/Cmore_person.jsx"
 
 
 
@@ -30,9 +31,11 @@ class Home1 extends React.Component {
         return (<Title>
                     <Route exact path="/more" component = {Cmore}></Route>  
                     <Route  path="/more/fl" component = {Cmorefl}></Route>
-                    <Route  path="/more/fx" component = {Cmorefx}></Route>
+                    <Route exact path="/more/fx" component = {Cmorefx}></Route>
                     <Route  path="/more/pl" component = {Cmorepl}></Route>
                     <Route  path="/more/sj" component = {Cmoresj}></Route>
+                    <Route  path="/more/fx/per" component = {Cmoreper}></Route>
+                    
             </Title>)
 
     }
