@@ -16,13 +16,15 @@ module.exports = {
             loader:"babel-loader"
         },{
             test:/\.css$/,
-            loader:"style-loader!css-loader"
-        }
-        ]
+            loader:"css-loader!style-loader"
+        }, {
+            test: /\.scss$/,
+            loader: 'style-loader!css-loader!sass-loader'
+        }]
     },
     watch:true,
     devServer:{
-        contentBase:"/public",
+        contentBase:"/src",
         inline:true,
         port:54321
     }

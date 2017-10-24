@@ -1,14 +1,14 @@
 import { createStore } from "redux"
 
 var store = createStore((state={
-    test:"abc"
+    isShowKside:false
 },action)=>{
     switch (action.type){
-        case "SETTEST":
-            return Object.assign({},state,{test:action.test})
+        case "SETSHOWKSIDE":
+            return Object.assign({}, state, { isShowKside: action.isShowKside})
         break;
-
         default:
+            return state;
     }
 })
 

@@ -2,7 +2,7 @@ import React from "react"
 import { connect } from "react-redux"
 import {HashRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 import styled from "styled-components"
-import $ from "../src/jquery.js"
+import $ from "jquery"
 
 
 
