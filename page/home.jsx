@@ -24,7 +24,7 @@ class Home extends React.Component {
     }
 
     componentDidMount(){
-        console.log(this)
+
     }
 
     componentWillReceiveProps(){
@@ -33,7 +33,7 @@ class Home extends React.Component {
 
     render(){
         var Div= styled.div`
-            
+            padding-top:52px;
         `
         return (
                 <Div>

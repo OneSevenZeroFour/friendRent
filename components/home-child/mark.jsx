@@ -13,33 +13,42 @@ class Mark extends React.Component{
 
         this.state = {
             data:[],
+            show:true
+        }
 
+        this.setPopupHide = ()=>{
+            this.setState({
+                show:false
+            })
         }
 
         this.askData = (typ,select)=>{
             console.log(typ)
             console.log(select)
-            var a=select
             var self = this
             $.ajax({
                 type:"get",
                 url:"https://www.easy-mock.com/mock/5993f32f059b9c566dbf4430/frent/"+typ,
                 success:function(res){
                     self.setState({
-                        data:res.data.list
+                        show:false,
+                        data:res.data.list                      
                     })
                 }
             })
-            self.props.send(a)
+            self.props.send()
         }
     }
 
     componentWillReceiveProps(){
-        console.log(this.props)
+
     }
 
+    componentDidUpdate(){
+        console.log(this.state)
+    }
     componentDidMount(){
-        console.log(this.props)
+
     }
 
     componentWillMount(){
@@ -51,7 +60,6 @@ class Mark extends React.Component{
                 self.setState({
                     data:res.data.list
                 })
-                console.log(res.data.list)
             }
         })
     }
@@ -59,7 +67,6 @@ class Mark extends React.Component{
     render(){
         var Div = styled.div`
             height:100%;
-            padding-top:58px;
             ul,li{
             margin:0;
             padding:0;
@@ -233,8 +240,8 @@ class Mark extends React.Component{
                     })
                 }</ul>
             <Footer />
-            <div className="mask" style={{opacity: 0.4, backgroundColor: "#000", position: "fixed",bottom:0,left:0, zIndex: 20000 ,display:"none"}}></div>
-                        <div className="popup" style={{display:"block"}}>
+            <div className="mask" style={{opacity: 0.4, backgroundColor: "#000", position: "fixed",bottom:0,left:0, zIndex: 20000 ,display:this.state.show?"block":"none"}}></div>
+                        <div className="popup" style={{display:this.state.show?"block":"none"}}>
                             <div className="del" onClick={this.setPopupHide}><span>&times;</span><span>关闭</span></div>
                             <div>
                                 <div className="selbtn">
@@ -268,11 +275,13 @@ class Mark extends React.Component{
 }
 
 export default connect((state)=>{
+    console.log(state)
     return state;
 },(dispatch)=>{
     return {
-        send(label){
-            dispatch({type:"CHANGLABEL",slect:label})
+        send(){
+            console.log(222)
+            dispatch({type:"CHANGLABEL",slect:true})
         }
     }
 })(Mark)

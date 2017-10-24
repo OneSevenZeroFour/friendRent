@@ -27,7 +27,6 @@ class All extends React.Component{
                 self.setState({
                     data:res.data.list
                 })
-                console.log(res.data.list)
             }
         })
     }
