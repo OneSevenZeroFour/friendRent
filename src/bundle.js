@@ -6161,9 +6161,13 @@ var _more = __webpack_require__(137);
 
 var _more2 = _interopRequireDefault(_more);
 
-var _me = __webpack_require__(139);
+var _Klogin = __webpack_require__(140);
 
-var _me2 = _interopRequireDefault(_me);
+var _Klogin2 = _interopRequireDefault(_Klogin);
+
+var _Kreg = __webpack_require__(145);
+
+var _Kreg2 = _interopRequireDefault(_Kreg);
 
 var _all = __webpack_require__(52);
 
@@ -6183,7 +6187,8 @@ _reactDom2.default.render(_react2.default.createElement(
             _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/home", component: _home2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: "/show", component: _show2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: "/more", component: _more2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: "/me", component: _me2.default })
+            _react2.default.createElement(_reactRouterDom.Route, { path: "/login", component: _Klogin2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: "/reg", component: _Kreg2.default })
         )
     )
 ), document.querySelector("#demo"));
@@ -32324,10 +32329,6 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(4);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
 var _reactRedux = __webpack_require__(8);
 
 __webpack_require__(126);
@@ -32351,8 +32352,10 @@ var Kpopup = function (_React$Component) {
         _this.state = {
             bool: false
         };
-        _this.Kclose = function () {
-            _this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: false });
+        _this.Kclose = function (e) {
+            if (e.target.className == "Kclose" || e.target.className == "Kcover") {
+                _this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: false });
+            }
         };
         return _this;
     }
@@ -32365,7 +32368,7 @@ var Kpopup = function (_React$Component) {
                 null,
                 !this.state.bool ? '' : _react2.default.createElement(
                     "div",
-                    { className: "Kcover" },
+                    { className: "Kcover", onClick: this.Kclose },
                     _react2.default.createElement(
                         "div",
                         { className: "Kbox" },
@@ -43795,7 +43798,8 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 })(Cmore);
 
 /***/ }),
-/* 139 */
+/* 139 */,
+/* 140 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -43807,27 +43811,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n            height:100%;\n            font-size:14px;\n            color:red;\n            position:relative;\n        "], ["\n            height:100%;\n            font-size:14px;\n            color:red;\n            position:relative;\n        "]);
-
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(8);
 
-var _reactRouterDom = __webpack_require__(9);
-
-var _styledComponents = __webpack_require__(4);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _footer = __webpack_require__(6);
-
-var _footer2 = _interopRequireDefault(_footer);
+__webpack_require__(141);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -43835,38 +43827,338 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Home = function (_React$Component) {
-    _inherits(Home, _React$Component);
+var Klogin = function (_React$Component) {
+    _inherits(Klogin, _React$Component);
 
-    function Home(props) {
-        _classCallCheck(this, Home);
+    function Klogin(props) {
+        _classCallCheck(this, Klogin);
 
-        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Klogin.__proto__ || Object.getPrototypeOf(Klogin)).call(this, props));
 
         _this.state = {};
+
         return _this;
     }
 
-    _createClass(Home, [{
+    _createClass(Klogin, [{
         key: "render",
         value: function render() {
-            var Title = _styledComponents2.default.div(_templateObject);
             return _react2.default.createElement(
-                Title,
-                null,
-                _react2.default.createElement(_footer2.default, null)
+                "div",
+                { className: "Klogin" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "KloginHead" },
+                    _react2.default.createElement(
+                        "span",
+                        null,
+                        "\u8FD4\u56DE"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "\u767B\u5F55"
+                    ),
+                    _react2.default.createElement("span", null)
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "KloginBody" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Klogo" },
+                        _react2.default.createElement("img", { src: "./img/k1.png" })
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kname" },
+                        "\u4EB2\u7231\u7684",
+                        _react2.default.createElement(
+                            "span",
+                            null,
+                            "XX"
+                        ),
+                        "\u6B22\u8FCE\u56DE\u6765!"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kaccout" },
+                        "\u60A8\u7684\u767B\u5F55\u8D26\u53F7\u662F",
+                        _react2.default.createElement(
+                            "span",
+                            null,
+                            "11111111111"
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "Kinput-box" },
+                    _react2.default.createElement("input", { type: "number", className: "Kinput", placeholder: "\u8BF7\u8F93\u5165\u60A8\u7684\u5BC6\u7801" }),
+                    _react2.default.createElement("hr", { className: "Kline" }),
+                    _react2.default.createElement("hr", { className: "Kline-focus" }),
+                    _react2.default.createElement(
+                        "button",
+                        { className: "Kbtn" },
+                        "\u767B\u5F55"
+                    )
+                )
             );
         }
     }]);
 
-    return Home;
+    return Klogin;
 }(_react2.default.Component);
 
 exports.default = (0, _reactRedux.connect)(function (state) {
-    return { state: state };
-}, function (dispatch) {
-    return {};
-})(Home);
+    return state;
+})(Klogin);
+
+/***/ }),
+/* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(142);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(129)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Klogin.scss", function() {
+			var newContent = require("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Klogin.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(128)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".Klogin {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  color: #fff;\n  background-color: #474A4f; }\n  .Klogin .KloginHead {\n    display: flex; }\n    .Klogin .KloginHead span {\n      width: 70px;\n      padding: 20px; }\n    .Klogin .KloginHead p {\n      flex: 1;\n      text-align: center;\n      font-size: 24px;\n      line-height: 60px; }\n  .Klogin .KloginBody {\n    text-align: center; }\n    .Klogin .KloginBody .Klogo {\n      width: 80px;\n      height: 80px;\n      border-radius: 50%;\n      background-color: #fff;\n      padding: 2px;\n      margin: 20px auto; }\n      .Klogin .KloginBody .Klogo img {\n        width: 76px;\n        height: 76px; }\n    .Klogin .KloginBody .Kname {\n      color: #ff5252; }\n  .Klogin .Kinput-box {\n    padding-top: 20px; }\n    .Klogin .Kinput-box .Kinput {\n      background-color: transparent;\n      outline: none;\n      display: block;\n      width: 250px;\n      margin: 0 auto;\n      height: 30px;\n      border: none; }\n    .Klogin .Kinput-box .Kline,\n    .Klogin .Kinput-box .Kline-focus {\n      width: 250px;\n      display: block;\n      margin: 0 auto; }\n    .Klogin .Kinput-box .Kbtn {\n      background-color: #ff5252;\n      color: #fff;\n      width: 250px;\n      height: 40px;\n      display: block;\n      margin: 0 auto;\n      border: none;\n      outline: none;\n      margin-top: 20px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(144);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(129)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Kreg.scss", function() {
+			var newContent = require("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Kreg.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 144 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(128)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".Kreg {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  color: #fff;\n  background-color: #474A4f; }\n  .Kreg .KregHead {\n    display: flex; }\n    .Kreg .KregHead span {\n      width: 70px;\n      padding: 20px; }\n    .Kreg .KregHead p {\n      flex: 1;\n      text-align: center;\n      font-size: 24px;\n      line-height: 60px; }\n  .Kreg .KregBody {\n    text-align: center; }\n    .Kreg .KregBody .Klogo {\n      width: 80px;\n      height: 80px;\n      border-radius: 50%;\n      background-color: #fff;\n      padding: 2px;\n      margin: 20px auto; }\n      .Kreg .KregBody .Klogo img {\n        width: 76px;\n        height: 76px; }\n    .Kreg .KregBody .Kname {\n      color: #ff5252; }\n  .Kreg .Kinput-box {\n    padding-top: 20px; }\n    .Kreg .Kinput-box .Kinput {\n      background-color: transparent;\n      outline: none;\n      display: block;\n      width: 250px;\n      margin: 0 auto;\n      height: 30px;\n      border: none;\n      margin-top: 20px; }\n    .Kreg .Kinput-box .Kinput-first {\n      position: relative;\n      width: 250px;\n      margin: 0 auto; }\n      .Kreg .Kinput-box .Kinput-first .Ktime {\n        position: absolute;\n        top: 8px;\n        right: 0px;\n        font-size: 12px;\n        color: #ff5252; }\n    .Kreg .Kinput-box .Kline,\n    .Kreg .Kinput-box .Kline-focus {\n      width: 250px;\n      display: block;\n      margin: 0 auto; }\n    .Kreg .Kinput-box .Kbtn {\n      background-color: #ff5252;\n      color: #fff;\n      width: 250px;\n      height: 40px;\n      display: block;\n      margin: 0 auto;\n      border: none;\n      outline: none;\n      margin-top: 20px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(8);
+
+__webpack_require__(143);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Kreg = function (_React$Component) {
+    _inherits(Kreg, _React$Component);
+
+    function Kreg(props) {
+        _classCallCheck(this, Kreg);
+
+        var _this = _possibleConstructorReturn(this, (Kreg.__proto__ || Object.getPrototypeOf(Kreg)).call(this, props));
+
+        _this.state = {
+            time: 0,
+            isGetTime: true
+        };
+        _this.getTime = function () {
+            var self = _this;
+            if (self.state.isGetTime) {
+                //开关关上,不准二次点击
+                self.setState({ isGetTime: false });
+                var now = new Date();
+                now.setSeconds(now.getSeconds() + 30); //在当前时间基础上增加30s
+                var fistTime = now.getSeconds(); //取得30s后的时间
+                var timer = setInterval(function (e) {
+                    console.log(self.state.time);
+                    var newTime = new Date();
+                    //如果已经到达时间,则退出定时器
+                    if (now.getTime() <= newTime.getTime()) {
+                        self.setState({ isGetTime: true }); //恢复开关
+                        self.setState({ time: 0 });
+                        clearInterval(timer);
+                        return;
+                    }
+                    //否则没到达时间的话,
+                    var newSeconds = fistTime - newTime.getSeconds(); //用之前的时间来减去当前时间算出倒数的时间,
+                    //因为只是获取秒数有可能出现负数,如果是负数就加60
+                    newSeconds = newSeconds > 0 ? newSeconds : newSeconds + 60;
+                    self.setState({ time: newSeconds });
+                }, 1000);
+            }
+        };
+
+        return _this;
+    }
+
+    _createClass(Kreg, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "Kreg" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "KregHead" },
+                    _react2.default.createElement(
+                        "span",
+                        null,
+                        "\u8FD4\u56DE"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "\u6CE8\u518C"
+                    ),
+                    _react2.default.createElement("span", null)
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "KregBody" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Klogo" },
+                        _react2.default.createElement("img", { src: "./img/k1.png" })
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kname" },
+                        "\u60A8\u8FD8\u672A\u6CE8\u518C,\u8BF7\u8FDB\u884C\u4E0B\u4E00\u6B65\u64CD\u4F5C!"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kaccout" },
+                        "\u60A8\u7684\u767B\u5F55\u8D26\u53F7\u662F",
+                        _react2.default.createElement(
+                            "span",
+                            null,
+                            "11111111111"
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "Kinput-box" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Kinput-first" },
+                        _react2.default.createElement("input", { type: "number", className: "Kinput", placeholder: "\u8BF7\u8F93\u5165\u60A8\u7684\u9A8C\u8BC1\u7801" }),
+                        _react2.default.createElement(
+                            "span",
+                            { className: "Ktime", onClick: this.getTime },
+                            this.state.time ? this.state.time + "秒后重试" : "重新获取"
+                        )
+                    ),
+                    _react2.default.createElement("hr", { className: "Kline" }),
+                    _react2.default.createElement("hr", { className: "Kline-focus" }),
+                    _react2.default.createElement("input", { type: "number", className: "Kinput", placeholder: "\u8BF7\u8F93\u5165\u60A8\u7684\u5BC6\u7801" }),
+                    _react2.default.createElement("hr", { className: "Kline" }),
+                    _react2.default.createElement("hr", { className: "Kline-focus" }),
+                    _react2.default.createElement(
+                        "button",
+                        { className: "Kbtn" },
+                        "\u767B\u5F55"
+                    )
+                )
+            );
+        }
+    }, {
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            this.getTime();
+        }
+    }]);
+
+    return Kreg;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(function (state) {
+    return state;
+})(Kreg);
 
 /***/ })
 /******/ ]);

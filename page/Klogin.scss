@@ -1,0 +1,77 @@
+
+.Klogin{
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    color:#fff;
+    background-color: #474A4f;
+    .KloginHead{
+        display: flex;
+
+        span{
+            width:70px;
+            padding: 20px;
+        }
+        p{
+            flex:1;
+            text-align: center;
+            font-size:24px;
+            line-height: 60px;
+        }
+    }
+    
+    .KloginBody{
+        text-align: center;
+        .Klogo{
+            width: 80px;
+            height: 80px;
+            border-radius:50%;
+            background-color: #fff;
+            padding: 2px;
+            margin:20px auto;
+            img{
+                width: 76px;
+                height: 76px;
+
+            }
+        }
+        .Kname{
+            color:#ff5252;
+        }
+        
+    }
+
+    .Kinput-box {
+        padding-top: 20px;
+        .Kinput {
+            background-color: transparent;
+            outline: none;
+            display: block;
+            width: 250px;
+            margin: 0 auto;
+            height: 30px;
+            border: none;
+        }
+        .Kline,
+        .Kline-focus {
+            width: 250px;
+            display: block;
+            margin: 0 auto;
+        }
+        .Kbtn {
+            background-color: #ff5252;
+            color: #fff;
+            width: 250px;
+            height: 40px;
+            display: block;
+            margin: 0 auto;
+            border: none;
+            outline: none;
+            margin-top: 20px;
+        }
+    }
+    
+}
+
+
