@@ -15,6 +15,7 @@ class All extends React.Component{
         this.state = {
             data:[]
         }
+
     }
 
     componentWillMount(){
@@ -32,7 +33,7 @@ class All extends React.Component{
     }
 
     componentDidMount(){
-        console.log(this)
+        console.log(this.refs)
     }
 
     render(){
@@ -104,12 +105,14 @@ class All extends React.Component{
                     }
                 }
                 .li-msg-see{
-                    width:45%;
+                    margin-left:8%;
+                    width:40%;
                 }
                 .li-msg-fab{
                     width:20%;
                 }
                 .li-msg-com{
+                    margin-left:10%;
                     width:20%;
                 }
             }
@@ -127,7 +130,7 @@ class All extends React.Component{
                                 </div>
                                 <div className="li-head-s">
                                     <div className="li-head-st">
-                                        {item.name} | #{item.label}
+                                        {item.name} | #{item.type}
                                     </div>
                                     <div>
                                         {item.date}
@@ -135,11 +138,11 @@ class All extends React.Component{
                                 </div>
                             </div>
                             <div className="li-title">
-                                {item.source}<span>#{item.type}</span>
+                                {item.source}<span>#{item.label}</span>
                             </div>
                             <div className="li-img">{
                                     item.url.map((a,b)=>{
-                                    return <img key={b} className={(function(a){
+                                    return <img className="allimg"  key={b} className={(function(a){
                                         if(a==1){
                                             return 'img1'
                                         }if(a==2){
@@ -152,12 +155,14 @@ class All extends React.Component{
                              }</div>
                             <div className="li-msg">
                                 <div className="li-msg-see">
-                                
+                                <i className="glyphicon glyphicon-eye-open" style={{fontSize:"16px"}}></i>
                                 <span>{item.see}</span></div>
                                 <div className="li-msg-fab">
-                                <i className="icon iconfont icon-xin"></i>
+                                <i className="glyphicon glyphicon-heart" style={{fontSize:"16px"}}></i>
                                 <span>{item.fabulous}</span></div>
-                                <div className="li-msg-com"><i></i><span>{item.comment}</span></div>           
+                                <div className="li-msg-com">
+                                <i className="glyphicon glyphicon-align-justify" style={{fontSize:"16px"}}></i>
+                                <span>{item.comment}</span></div>           
                             </div>
                         </li>                       
                     })

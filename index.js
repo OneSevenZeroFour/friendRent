@@ -3,7 +3,7 @@ import ReactDOM from "react-dom"
  
 import store from "./store/store.js"
 import { Provider } from "react-redux"
-import { HashRouter as Router , Route , Link ,Redirect} from "react-router-dom"
+import { HashRouter as Router , Route , Link , Redirect} from "react-router-dom"
 
 import Home from "./page/home.jsx"
 import Show from "./page/show.jsx"
@@ -17,7 +17,8 @@ ReactDOM.render(
         <Router>
             <Provider store={store}>
                 <div>
-                    <Route exact path="/home" component = {Home}></Route>
+                    <Redirect to="/home/all"/>
+                    <Route  path="/home" component = {Home}></Route>
                     <Route  path="/show" component = {Show}></Route>
                     <Route  path="/more" component = {More}></Route>
                     <Route  path="/me" component = {Me}></Route>
