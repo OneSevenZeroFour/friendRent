@@ -4,7 +4,7 @@ import {HashRouter as Router, Route, Link, Redirect} from 'react-router-dom'
 import styled from "styled-components"
 import $ from "jquery"
 
-
+    
 
 class morefx extends React.Component {
     constructor(props){
@@ -32,7 +32,9 @@ class morefx extends React.Component {
 
                                 <div class="ctoubu">
                                     <p><img src="${data.icon}${data.urlid}" alt="x"></p>
-                                    <p><span>${data.name}</span><span>性别：${data.gender}&nbsp; 爱好：${data.hobby}</span></p>
+                                    <p><span>${data.name}</span>
+                                        <p></p>
+                                        <span>性别：${data.gender}&nbsp; 爱好：${data.hobby}</span></p>
                                 </div>
                                 <div class="csec">
                                     ${data.signature}
@@ -67,7 +69,7 @@ class morefx extends React.Component {
                 line-height:78px
             }
           .header span:nth-of-type(1){
-            margin-left:68px;
+            margin-left:46px;
           }
           .header span:nth-of-type(2){
                 text-align: center;
@@ -91,13 +93,13 @@ class morefx extends React.Component {
                 float:left;
                 width:50px;
                 height:50px;
-
+                margin:-6px;
             }
             .ctoubu p:nth-of-type(2){float:left;margin-left:10px}
-            .ctoubu p:nth-of-type(2) span:nth-of-type(1){display:block;font-size:1.3em;width:185px}
-            .ctoubu p:nth-of-type(2) span:nth-of-type(2){display:block;font-size:1em;}
+            .ctoubu #cname{display:block;font-size:1.3em;width:300px;height:196px;position:absolute;top:117px;left:27px;text-align:center;line-height:78px;}
+            .ctoubu p:nth-of-type(2) span:nth-of-type(2){display:block;font-size:1em;line-height:4}
             .csec{display:block;width:100%;margin:21px}
-
+            .ctoubu img{width:50px;height:50px;;border-radius:50px;}
             #cBtn{
                 margin:10px 57px;
                 width:70%;

@@ -29,12 +29,12 @@ class Home1 extends React.Component {
             z-index:1
         `
         return (<Title>
-                    <Route exact path="/more" component = {Cmore}></Route>  
+                    <Route  exact path="/more" component = {Cmore}></Route>  
                     <Route  path="/more/fl" component = {Cmorefl}></Route>
-                    <Route exact path="/more/fx" component = {Cmorefx}></Route>
+                    <Route  exact path="/more/fx" component = {Cmorefx}></Route>
                     <Route  path="/more/pl" component = {Cmorepl}></Route>
                     <Route  path="/more/sj" component = {Cmoresj}></Route>
-                    <Route  path="/more/fx/per" component = {Cmoreper}></Route>
+                    <Route exact path="/more/fx/per" component = {Cmoreper}></Route>
                     
             </Title>)
 
