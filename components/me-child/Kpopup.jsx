@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components"
 import { connect } from "react-redux";
 
 
@@ -8,16 +7,18 @@ class Kpopup extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            bool:false
+            bool:false,
         }
-        this.Kclose = ()=>{
-            this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: false })
+        this.Kclose = (e) => {
+            if (e.target.className == "Kclose" || e.target.className == "Kcover") {
+                this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: false })
+            }
         }
     }
     render() {
         return (
             <div>
-                {!this.state.bool ? '' : <div className="Kcover">
+                <div className="Kcover" onClick={this.Kclose} style = {{display:this.state.bool?"block":"none"}}>
                     <div className="Kbox">
                         <div className="Kclose" onClick={this.Kclose}>关闭</div>
                         <div className="Klogo">
@@ -31,7 +32,7 @@ class Kpopup extends React.Component {
                             <button className="Kbtn">下一步</button>
                         </div>
                     </div>
-                </div>}
+                </div>
             </div>
         )
     }

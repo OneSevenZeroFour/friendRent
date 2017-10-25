@@ -1,0 +1,114 @@
+html,body{
+    height: 100%;
+    background-color: #FAFAFA;
+
+}
+.Kuser{
+    padding: 50px 20px 0;
+    margin-bottom:60px;
+    .Kuser-box{
+        background-color: rgba(255,255,255,0.7);
+        width: 100%;
+        height: 100px;
+        margin-bottom: 20px;
+        border-radius: 3px;
+        box-shadow: 0 1px 6px rgba(0,0,0,.117647),0 1px 6px rgba(0,0,0,.117647);
+    }
+    .Kuser-box.Kuser-exit{
+        height: 50px;
+        line-height: 50px;
+        color:#ff5252;
+        text-align: center;
+        font-weight: 600;
+        margin:0;
+        &:active{
+            background-color: rgba(0,0,0,0.05);
+        }
+    }
+    .Kuser-box-one-top{
+        height: 60px;
+        border-bottom:1px solid #ddd;
+        &:active{
+            background-color: rgba(0,0,0,0.05);
+        }
+        .Kuser-portrait{
+            padding: 10px;
+            float: left;
+            div{
+                width: 40px;
+                height: 40px;
+                background-color: #58bc58;
+                border-radius: 50%;
+                
+            }
+            
+        }
+        .Kuser-name{
+            padding:10px;
+            float: left;
+            p{
+                &:first-child{
+                    margin-bottom:2px;
+                    font-size:16px;
+                    color:#000;
+                }
+                &:last-child{
+                    margin:0;
+                    font-size:12px;
+                    color:#999;
+                }
+            }
+        }
+    }
+    .Kuser-box-one-bottom{
+        width: 100%;
+        height:40px;
+        display: flex;
+        div{
+            flex: 1;
+            line-height: 40px;
+            text-align: center;
+            &:nth-of-type(2){
+                border-left:1px solid #ddd;
+                border-right:1px solid #ddd;
+            }
+            &:active{
+                background-color: rgba(0,0,0,0.05);
+            }
+        }
+    }
+    
+    .Kuser-issue,.Kuser-discuss,.Kuser-cellphone,.Kuser-modifydata{
+        padding-left: 20px;
+        height: 50px;
+        line-height: 50px;
+ 
+        &:active{
+            background-color: rgba(0,0,0,0.05);
+        }
+    }
+
+    .Kuser-issue,.Kuser-cellphone{
+        border-bottom:1px solid #ddd;
+    }
+    
+    .Kuser-btn{
+        display: flex;
+    }
+    .Kuser-blacklist,.Kuser-keyword,.Kuser-authority{
+        flex: 1;
+        text-align: center;
+        line-height: 100px;
+        &:active{
+            background-color: rgba(0,0,0,0.05);
+        }
+    }
+    .Kuser-keyword{
+        border-left: 1px solid #ddd;
+        border-right: 1px solid #ddd;
+    }
+    
+    
+    
+    
+}

@@ -2744,7 +2744,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n                position:fixed;\n                width:100%;\n                bottom:0; \n            .foot{\n                display:flex;\n                justify-content:space-around;\n                background:#474a4f;\n                color:#fff;\n                font-size:16px;\n                height:52px;\n                // line-height:60px;\n                .btn{\n                    position:relative;\n                    &:hover{\n                        color:red;\n                    }\n                }\n                .midbtn{\n                    width:52px;\n                    background:red;\n                    border-radius:50%;\n                    line-height:52px;\n                    text-align:center;\n                }\n                svg{\n                    color:#fff;\n                    margin-top:-2px;\n                    width:26px;\n                    height:24px;\n                }\n                .plus{\n                    margin-top:10px;\n                }\n                .navbtn{\n                    position:absolute;\n                    bottom:-10px;\n                    left:12px;\n                    height:18px;\n                    line-height:18px;\n                    font-size:14px;\n                    color:#fff;\n                }\n            }\n        "], ["\n                position:fixed;\n                width:100%;\n                bottom:0; \n            .foot{\n                display:flex;\n                justify-content:space-around;\n                background:#474a4f;\n                color:#fff;\n                font-size:16px;\n                height:52px;\n                // line-height:60px;\n                .btn{\n                    position:relative;\n                    &:hover{\n                        color:red;\n                    }\n                }\n                .midbtn{\n                    width:52px;\n                    background:red;\n                    border-radius:50%;\n                    line-height:52px;\n                    text-align:center;\n                }\n                svg{\n                    color:#fff;\n                    margin-top:-2px;\n                    width:26px;\n                    height:24px;\n                }\n                .plus{\n                    margin-top:10px;\n                }\n                .navbtn{\n                    position:absolute;\n                    bottom:-10px;\n                    left:12px;\n                    height:18px;\n                    line-height:18px;\n                    font-size:14px;\n                    color:#fff;\n                }\n            }\n        "]);
+var _templateObject = _taggedTemplateLiteral(["\n                position:fixed;\n                width:100%;\n                bottom:0; \n            .foot{\n                display:flex;\n                justify-content:space-around;\n                background:#474a4f;\n                color:#fff;\n                font-size:16px;\n                height:52px;\n                // line-height:60px;\n                .btn{\n                    position:relative;\n                    &:hover{\n                        color:red;\n                    }\n                }\n                .midbtn{\n                    width:52px;\n                    background:red;\n                    border-radius:50%;\n                    line-height:65px;\n                    text-align:center;\n                }\n                svg{\n                    color:#fff;\n                    margin-top:-2px;\n                    width:26px;\n                    height:24px;\n                }\n                .plus{\n                    margin-top:10px;\n                }\n                .navbtn{\n                    position:absolute;\n                    bottom:-10px;\n                    left:12px;\n                    height:18px;\n                    line-height:18px;\n                    font-size:14px;\n                    color:#fff;\n                }\n            }\n        "], ["\n                position:fixed;\n                width:100%;\n                bottom:0; \n            .foot{\n                display:flex;\n                justify-content:space-around;\n                background:#474a4f;\n                color:#fff;\n                font-size:16px;\n                height:52px;\n                // line-height:60px;\n                .btn{\n                    position:relative;\n                    &:hover{\n                        color:red;\n                    }\n                }\n                .midbtn{\n                    width:52px;\n                    background:red;\n                    border-radius:50%;\n                    line-height:65px;\n                    text-align:center;\n                }\n                svg{\n                    color:#fff;\n                    margin-top:-2px;\n                    width:26px;\n                    height:24px;\n                }\n                .plus{\n                    margin-top:10px;\n                }\n                .navbtn{\n                    position:absolute;\n                    bottom:-10px;\n                    left:12px;\n                    height:18px;\n                    line-height:18px;\n                    font-size:14px;\n                    color:#fff;\n                }\n            }\n        "]);
 
 var _react = __webpack_require__(0);
 
@@ -2785,14 +2785,32 @@ var Footer = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Footer.__proto__ || Object.getPrototypeOf(Footer)).call(this, props));
 
-        _this.showKside = function () {
-            _this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: true });
+        _this.state = {
+            isLogin: true,
+            Url: "#/"
         };
+        _this.showKside = _this.showKside.bind(_this); //绑定方法的this
 
         return _this;
     }
 
     _createClass(Footer, [{
+        key: "showKside",
+        value: function showKside() {
+            if (!this.state.isLogin) {
+                this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: true });
+            }
+        }
+    }, {
+        key: "componentWillMount",
+        value: function componentWillMount() {
+            if (this.state.isLogin) {
+                this.setState({ url: "#/user" });
+            } else {
+                this.setState({ url: "javascript:void(0);" });
+            }
+        }
+    }, {
         key: "render",
         value: function render() {
             var Div = _styledComponents2.default.div(_templateObject);
@@ -2849,7 +2867,7 @@ var Footer = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         _reactRouterDom.Link,
-                        { to: "more" },
+                        { to: "/more" },
                         _react2.default.createElement(
                             "div",
                             { className: "btn" },
@@ -2867,7 +2885,7 @@ var Footer = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         "a",
-                        null,
+                        { href: this.state.url },
                         _react2.default.createElement(
                             "div",
                             { className: "btn", onClick: this.showKside },
@@ -2882,9 +2900,9 @@ var Footer = function (_React$Component) {
                                 "\u6211\u7684"
                             )
                         )
-                    ),
-                    _react2.default.createElement(_Kpopup2.default, null)
-                )
+                    )
+                ),
+                _react2.default.createElement(_Kpopup2.default, null)
             );
         }
     }]);
@@ -16467,9 +16485,17 @@ var _more = __webpack_require__(137);
 
 var _more2 = _interopRequireDefault(_more);
 
-var _me = __webpack_require__(144);
+var _Klogin = __webpack_require__(145);
 
-var _me2 = _interopRequireDefault(_me);
+var _Klogin2 = _interopRequireDefault(_Klogin);
+
+var _Kreg = __webpack_require__(148);
+
+var _Kreg2 = _interopRequireDefault(_Kreg);
+
+var _Kuser = __webpack_require__(151);
+
+var _Kuser2 = _interopRequireDefault(_Kuser);
 
 var _all = __webpack_require__(54);
 
@@ -16486,10 +16512,13 @@ _reactDom2.default.render(_react2.default.createElement(
         _react2.default.createElement(
             "div",
             null,
-            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/home", component: _home2.default }),
+            _react2.default.createElement(_reactRouterDom.Redirect, { exact: true, path: "/", to: "home" }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: "/home", component: _home2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: "/show", component: _show2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: "/more", component: _more2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: "/me", component: _me2.default })
+            _react2.default.createElement(_reactRouterDom.Route, { path: "/login", component: _Klogin2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: "/reg", component: _Kreg2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: "/user", component: _Kuser2.default })
         )
     )
 ), document.querySelector("#demo"));
@@ -42588,10 +42617,6 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _styledComponents = __webpack_require__(2);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
 var _reactRedux = __webpack_require__(5);
 
 __webpack_require__(127);
@@ -42615,8 +42640,10 @@ var Kpopup = function (_React$Component) {
         _this.state = {
             bool: false
         };
-        _this.Kclose = function () {
-            _this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: false });
+        _this.Kclose = function (e) {
+            if (e.target.className == "Kclose" || e.target.className == "Kcover") {
+                _this.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: false });
+            }
         };
         return _this;
     }
@@ -42627,9 +42654,9 @@ var Kpopup = function (_React$Component) {
             return _react2.default.createElement(
                 "div",
                 null,
-                !this.state.bool ? '' : _react2.default.createElement(
+                _react2.default.createElement(
                     "div",
-                    { className: "Kcover" },
+                    { className: "Kcover", onClick: this.Kclose, style: { display: this.state.bool ? "block" : "none" } },
                     _react2.default.createElement(
                         "div",
                         { className: "Kbox" },
@@ -42718,7 +42745,7 @@ exports = module.exports = __webpack_require__(129)(undefined);
 
 
 // module
-exports.push([module.i, ".Kcover {\n  background-color: rgba(0, 0, 0, 0.4);\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n  .Kcover .Kbox {\n    position: absolute;\n    bottom: 0;\n    height: 300px;\n    width: 100%;\n    background-color: #474a4f;\n    margin-bottom: 52px; }\n    .Kcover .Kbox .Kclose {\n      float: right;\n      color: #999;\n      padding: 20px; }\n    .Kcover .Kbox .Klogo {\n      width: 70px;\n      height: 70px;\n      background-color: #fff;\n      border-radius: 50%;\n      padding: 2px;\n      margin: 50px auto;\n      margin-bottom: 20px; }\n      .Kcover .Kbox .Klogo img {\n        width: 66px;\n        height: 66px; }\n    .Kcover .Kbox .Ktips {\n      color: #ff5252;\n      font-size: 14px;\n      text-align: center; }\n    .Kcover .Kbox .Kinput-box {\n      matgin-top: 20px;\n      padding-top: 20px; }\n      .Kcover .Kbox .Kinput-box .Kinput {\n        background-color: transparent;\n        outline: none;\n        display: block;\n        width: 250px;\n        margin: 0 auto;\n        height: 30px;\n        border: none; }\n      .Kcover .Kbox .Kinput-box .Kline,\n      .Kcover .Kbox .Kinput-box .Kline-focus {\n        width: 250px;\n        display: block;\n        margin: 0 auto; }\n      .Kcover .Kbox .Kinput-box .Kbtn {\n        background-color: #ff5252;\n        color: #fff;\n        width: 250px;\n        height: 40px;\n        display: block;\n        margin: 0 auto;\n        border: none;\n        outline: none;\n        margin-top: 20px; }\n", ""]);
+exports.push([module.i, ".Kcover {\n  display: none;\n  background-color: rgba(0, 0, 0, 0.4);\n  position: fixed;\n  height: 100%;\n  width: 100%;\n  top: 0;\n  bottom: 0;\n  left: 0;\n  right: 0; }\n  .Kcover .Kbox {\n    position: absolute;\n    bottom: 0;\n    height: 300px;\n    width: 100%;\n    background-color: #474a4f;\n    margin-bottom: 52px; }\n    .Kcover .Kbox .Kclose {\n      float: right;\n      color: #999;\n      padding: 20px; }\n    .Kcover .Kbox .Klogo {\n      width: 70px;\n      height: 70px;\n      background-color: #fff;\n      border-radius: 50%;\n      padding: 2px;\n      margin: 50px auto;\n      margin-bottom: 20px; }\n      .Kcover .Kbox .Klogo img {\n        width: 66px;\n        height: 66px; }\n    .Kcover .Kbox .Ktips {\n      color: #ff5252;\n      font-size: 14px;\n      text-align: center; }\n    .Kcover .Kbox .Kinput-box {\n      matgin-top: 20px;\n      padding-top: 20px; }\n      .Kcover .Kbox .Kinput-box .Kinput {\n        background-color: transparent;\n        outline: none;\n        display: block;\n        width: 250px;\n        margin: 0 auto;\n        height: 30px;\n        border: none; }\n      .Kcover .Kbox .Kinput-box .Kline,\n      .Kcover .Kbox .Kinput-box .Kline-focus {\n        width: 250px;\n        display: block;\n        margin: 0 auto; }\n      .Kcover .Kbox .Kinput-box .Kbtn {\n        background-color: #ff5252;\n        color: #fff;\n        width: 250px;\n        height: 40px;\n        display: block;\n        margin: 0 auto;\n        border: none;\n        outline: none;\n        margin-top: 20px; }\n", ""]);
 
 // exports
 
@@ -44521,7 +44548,8 @@ exports.default = (0, _reactRedux.connect)(function (state) {
 })(Cmore);
 
 /***/ }),
-/* 144 */
+/* 144 */,
+/* 145 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -44533,27 +44561,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _templateObject = _taggedTemplateLiteral(["\n            height:100%;\n            font-size:14px;\n            color:red;\n            position:relative;\n        "], ["\n            height:100%;\n            font-size:14px;\n            color:red;\n            position:relative;\n        "]);
-
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(5);
 
-var _reactRouterDom = __webpack_require__(6);
-
-var _styledComponents = __webpack_require__(2);
-
-var _styledComponents2 = _interopRequireDefault(_styledComponents);
-
-var _footer = __webpack_require__(8);
-
-var _footer2 = _interopRequireDefault(_footer);
+__webpack_require__(146);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -44561,38 +44577,552 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var Home = function (_React$Component) {
-    _inherits(Home, _React$Component);
+var Klogin = function (_React$Component) {
+    _inherits(Klogin, _React$Component);
 
-    function Home(props) {
-        _classCallCheck(this, Home);
+    function Klogin(props) {
+        _classCallCheck(this, Klogin);
 
-        var _this = _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).call(this, props));
+        var _this = _possibleConstructorReturn(this, (Klogin.__proto__ || Object.getPrototypeOf(Klogin)).call(this, props));
 
         _this.state = {};
+
         return _this;
     }
 
-    _createClass(Home, [{
+    _createClass(Klogin, [{
         key: "render",
         value: function render() {
-            var Title = _styledComponents2.default.div(_templateObject);
             return _react2.default.createElement(
-                Title,
-                null,
-                _react2.default.createElement(_footer2.default, null)
+                "div",
+                { className: "Klogin" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "KloginHead" },
+                    _react2.default.createElement(
+                        "span",
+                        null,
+                        "\u8FD4\u56DE"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "\u767B\u5F55"
+                    ),
+                    _react2.default.createElement("span", null)
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "KloginBody" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Klogo" },
+                        _react2.default.createElement("img", { src: "./img/k1.png" })
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kname" },
+                        "\u4EB2\u7231\u7684",
+                        _react2.default.createElement(
+                            "span",
+                            null,
+                            "XX"
+                        ),
+                        "\u6B22\u8FCE\u56DE\u6765!"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kaccout" },
+                        "\u60A8\u7684\u767B\u5F55\u8D26\u53F7\u662F",
+                        _react2.default.createElement(
+                            "span",
+                            null,
+                            "11111111111"
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "Kinput-box" },
+                    _react2.default.createElement("input", { type: "number", className: "Kinput", placeholder: "\u8BF7\u8F93\u5165\u60A8\u7684\u5BC6\u7801" }),
+                    _react2.default.createElement("hr", { className: "Kline" }),
+                    _react2.default.createElement("hr", { className: "Kline-focus" }),
+                    _react2.default.createElement(
+                        "button",
+                        { className: "Kbtn" },
+                        "\u767B\u5F55"
+                    )
+                )
             );
         }
     }]);
 
-    return Home;
+    return Klogin;
 }(_react2.default.Component);
 
 exports.default = (0, _reactRedux.connect)(function (state) {
-    return { state: state };
-}, function (dispatch) {
-    return {};
-})(Home);
+    return state;
+})(Klogin);
+
+/***/ }),
+/* 146 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(147);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(130)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Klogin.scss", function() {
+			var newContent = require("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Klogin.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 147 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(129)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".Klogin {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  color: #fff;\n  background-color: #474A4f; }\n  .Klogin .KloginHead {\n    display: flex; }\n    .Klogin .KloginHead span {\n      width: 70px;\n      padding: 20px; }\n    .Klogin .KloginHead p {\n      flex: 1;\n      text-align: center;\n      font-size: 24px;\n      line-height: 60px; }\n  .Klogin .KloginBody {\n    text-align: center; }\n    .Klogin .KloginBody .Klogo {\n      width: 80px;\n      height: 80px;\n      border-radius: 50%;\n      background-color: #fff;\n      padding: 2px;\n      margin: 20px auto; }\n      .Klogin .KloginBody .Klogo img {\n        width: 76px;\n        height: 76px; }\n    .Klogin .KloginBody .Kname {\n      color: #ff5252; }\n  .Klogin .Kinput-box {\n    padding-top: 20px; }\n    .Klogin .Kinput-box .Kinput {\n      background-color: transparent;\n      outline: none;\n      display: block;\n      width: 250px;\n      margin: 0 auto;\n      height: 30px;\n      border: none; }\n    .Klogin .Kinput-box .Kline,\n    .Klogin .Kinput-box .Kline-focus {\n      width: 250px;\n      display: block;\n      margin: 0 auto; }\n    .Klogin .Kinput-box .Kbtn {\n      background-color: #ff5252;\n      color: #fff;\n      width: 250px;\n      height: 40px;\n      display: block;\n      margin: 0 auto;\n      border: none;\n      outline: none;\n      margin-top: 20px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 148 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(5);
+
+__webpack_require__(149);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Kreg = function (_React$Component) {
+    _inherits(Kreg, _React$Component);
+
+    function Kreg(props) {
+        _classCallCheck(this, Kreg);
+
+        var _this = _possibleConstructorReturn(this, (Kreg.__proto__ || Object.getPrototypeOf(Kreg)).call(this, props));
+
+        _this.state = {
+            time: 0,
+            isGetTime: true
+        };
+        _this.getTime = function () {
+            var self = _this;
+            if (self.state.isGetTime) {
+                //开关关上,不准二次点击
+                self.setState({ isGetTime: false });
+                var now = new Date();
+                now.setSeconds(now.getSeconds() + 30); //在当前时间基础上增加30s
+                var fistTime = now.getSeconds(); //取得30s后的时间
+                var timer = setInterval(function (e) {
+                    console.log(self.state.time);
+                    var newTime = new Date();
+                    //如果已经到达时间,则退出定时器
+                    if (now.getTime() <= newTime.getTime()) {
+                        self.setState({ isGetTime: true }); //恢复开关
+                        self.setState({ time: 0 });
+                        clearInterval(timer);
+                        return;
+                    }
+                    //否则没到达时间的话,
+                    var newSeconds = fistTime - newTime.getSeconds(); //用之前的时间来减去当前时间算出倒数的时间,
+                    //因为只是获取秒数有可能出现负数,如果是负数就加60
+                    newSeconds = newSeconds > 0 ? newSeconds : newSeconds + 60;
+                    self.setState({ time: newSeconds });
+                }, 1000);
+            }
+        };
+
+        return _this;
+    }
+
+    _createClass(Kreg, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                { className: "Kreg" },
+                _react2.default.createElement(
+                    "div",
+                    { className: "KregHead" },
+                    _react2.default.createElement(
+                        "span",
+                        null,
+                        "\u8FD4\u56DE"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        null,
+                        "\u6CE8\u518C"
+                    ),
+                    _react2.default.createElement("span", null)
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "KregBody" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Klogo" },
+                        _react2.default.createElement("img", { src: "./img/k1.png" })
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kname" },
+                        "\u60A8\u8FD8\u672A\u6CE8\u518C,\u8BF7\u8FDB\u884C\u4E0B\u4E00\u6B65\u64CD\u4F5C!"
+                    ),
+                    _react2.default.createElement(
+                        "p",
+                        { className: "Kaccout" },
+                        "\u60A8\u7684\u767B\u5F55\u8D26\u53F7\u662F",
+                        _react2.default.createElement(
+                            "span",
+                            null,
+                            "11111111111"
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    "div",
+                    { className: "Kinput-box" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Kinput-first" },
+                        _react2.default.createElement("input", { type: "number", className: "Kinput", placeholder: "\u8BF7\u8F93\u5165\u60A8\u7684\u9A8C\u8BC1\u7801" }),
+                        _react2.default.createElement(
+                            "span",
+                            { className: "Ktime", onClick: this.getTime },
+                            this.state.time ? this.state.time + "秒后重试" : "重新获取"
+                        )
+                    ),
+                    _react2.default.createElement("hr", { className: "Kline" }),
+                    _react2.default.createElement("hr", { className: "Kline-focus" }),
+                    _react2.default.createElement("input", { type: "number", className: "Kinput", placeholder: "\u8BF7\u8F93\u5165\u60A8\u7684\u5BC6\u7801" }),
+                    _react2.default.createElement("hr", { className: "Kline" }),
+                    _react2.default.createElement("hr", { className: "Kline-focus" }),
+                    _react2.default.createElement(
+                        "button",
+                        { className: "Kbtn" },
+                        "\u767B\u5F55"
+                    )
+                )
+            );
+        }
+    }, {
+        key: "componentDidMount",
+        value: function componentDidMount() {
+            this.getTime();
+        }
+    }]);
+
+    return Kreg;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(function (state) {
+    return state;
+})(Kreg);
+
+/***/ }),
+/* 149 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(150);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(130)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Kreg.scss", function() {
+			var newContent = require("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Kreg.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 150 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(129)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, ".Kreg {\n  position: fixed;\n  top: 0;\n  bottom: 0;\n  width: 100%;\n  color: #fff;\n  background-color: #474A4f; }\n  .Kreg .KregHead {\n    display: flex; }\n    .Kreg .KregHead span {\n      width: 70px;\n      padding: 20px; }\n    .Kreg .KregHead p {\n      flex: 1;\n      text-align: center;\n      font-size: 24px;\n      line-height: 60px; }\n  .Kreg .KregBody {\n    text-align: center; }\n    .Kreg .KregBody .Klogo {\n      width: 80px;\n      height: 80px;\n      border-radius: 50%;\n      background-color: #fff;\n      padding: 2px;\n      margin: 20px auto; }\n      .Kreg .KregBody .Klogo img {\n        width: 76px;\n        height: 76px; }\n    .Kreg .KregBody .Kname {\n      color: #ff5252; }\n  .Kreg .Kinput-box {\n    padding-top: 20px; }\n    .Kreg .Kinput-box .Kinput {\n      background-color: transparent;\n      outline: none;\n      display: block;\n      width: 250px;\n      margin: 0 auto;\n      height: 30px;\n      border: none;\n      margin-top: 20px; }\n    .Kreg .Kinput-box .Kinput-first {\n      position: relative;\n      width: 250px;\n      margin: 0 auto; }\n      .Kreg .Kinput-box .Kinput-first .Ktime {\n        position: absolute;\n        top: 8px;\n        right: 0px;\n        font-size: 12px;\n        color: #ff5252; }\n    .Kreg .Kinput-box .Kline,\n    .Kreg .Kinput-box .Kline-focus {\n      width: 250px;\n      display: block;\n      margin: 0 auto; }\n    .Kreg .Kinput-box .Kbtn {\n      background-color: #ff5252;\n      color: #fff;\n      width: 250px;\n      height: 40px;\n      display: block;\n      margin: 0 auto;\n      border: none;\n      outline: none;\n      margin-top: 20px; }\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 151 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(5);
+
+var _footer = __webpack_require__(8);
+
+var _footer2 = _interopRequireDefault(_footer);
+
+__webpack_require__(152);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Kuser = function (_React$Component) {
+    _inherits(Kuser, _React$Component);
+
+    function Kuser(props) {
+        _classCallCheck(this, Kuser);
+
+        var _this = _possibleConstructorReturn(this, (Kuser.__proto__ || Object.getPrototypeOf(Kuser)).call(this, props));
+
+        _this.state = {};
+
+        return _this;
+    }
+
+    _createClass(Kuser, [{
+        key: "render",
+        value: function render() {
+            return _react2.default.createElement(
+                "div",
+                null,
+                _react2.default.createElement(
+                    "div",
+                    { className: "Kuser" },
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Kuser-box" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-box-one-top" },
+                            _react2.default.createElement(
+                                "div",
+                                { className: "Kuser-portrait" },
+                                _react2.default.createElement("div", null)
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                { className: "Kuser-name" },
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "laoyao(\u8001\u59DA)"
+                                ),
+                                _react2.default.createElement(
+                                    "p",
+                                    null,
+                                    "\u8FD9\u4E2A\u4EBA\u5F88\u61D2,\u4EC0\u4E48\u90FD\u6CA1\u6709\u7559\u4E0B"
+                                )
+                            )
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-box-one-bottom" },
+                            _react2.default.createElement(
+                                "div",
+                                null,
+                                "\u5173\u6CE8"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                null,
+                                "\u6536\u85CF"
+                            ),
+                            _react2.default.createElement(
+                                "div",
+                                null,
+                                "\u70B9\u8D5E"
+                            )
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Kuser-box" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-issue" },
+                            "\u6211\u53D1\u5E03\u7684\u5E16\u5B50 "
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-discuss" },
+                            "\u6211\u53D1\u5E03\u7684\u8BC4\u8BBA"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Kuser-box" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-cellphone" },
+                            "\u624B\u673A\u7ED1\u5B9A"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-modifydata" },
+                            "\u4FEE\u6539\u8D44\u6599"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Kuser-box Kuser-btn" },
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-blacklist" },
+                            "\u9ED1\u540D\u5355"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-keyword" },
+                            "\u5173\u952E\u8BCD\u8FC7\u6EE4"
+                        ),
+                        _react2.default.createElement(
+                            "div",
+                            { className: "Kuser-authority" },
+                            "\u53D1\u5E03\u6743\u9650"
+                        )
+                    ),
+                    _react2.default.createElement(
+                        "div",
+                        { className: "Kuser-box Kuser-exit" },
+                        "\u9000\u51FA\u5F53\u524D\u8D26\u53F7"
+                    )
+                ),
+                _react2.default.createElement(_footer2.default, null)
+            );
+        }
+    }, {
+        key: "componentDidMount",
+        value: function componentDidMount() {}
+    }]);
+
+    return Kuser;
+}(_react2.default.Component);
+
+exports.default = (0, _reactRedux.connect)(function (state) {
+    return state;
+})(Kuser);
+
+/***/ }),
+/* 152 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(153);
+if(typeof content === 'string') content = [[module.i, content, '']];
+// Prepare cssTransformation
+var transform;
+
+var options = {"hmr":true}
+options.transform = transform
+// add the styles to the DOM
+var update = __webpack_require__(130)(content, options);
+if(content.locals) module.exports = content.locals;
+// Hot Module Replacement
+if(false) {
+	// When the styles change, update the <style> tags
+	if(!content.locals) {
+		module.hot.accept("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Kuser.scss", function() {
+			var newContent = require("!!../node_modules/_css-loader@0.28.7@css-loader/index.js!../node_modules/_sass-loader@6.0.6@sass-loader/lib/loader.js!./Kuser.scss");
+			if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+			update(newContent);
+		});
+	}
+	// When the module is disposed, remove the <style> tags
+	module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 153 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(129)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "html, body {\n  height: 100%;\n  background-color: #FAFAFA; }\n\n.Kuser {\n  padding: 50px 20px 0;\n  margin-bottom: 60px; }\n  .Kuser .Kuser-box {\n    background-color: rgba(255, 255, 255, 0.7);\n    width: 100%;\n    height: 100px;\n    margin-bottom: 20px;\n    border-radius: 3px;\n    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.117647), 0 1px 6px rgba(0, 0, 0, 0.117647); }\n  .Kuser .Kuser-box.Kuser-exit {\n    height: 50px;\n    line-height: 50px;\n    color: #ff5252;\n    text-align: center;\n    font-weight: 600;\n    margin: 0; }\n    .Kuser .Kuser-box.Kuser-exit:active {\n      background-color: rgba(0, 0, 0, 0.05); }\n  .Kuser .Kuser-box-one-top {\n    height: 60px;\n    border-bottom: 1px solid #ddd; }\n    .Kuser .Kuser-box-one-top:active {\n      background-color: rgba(0, 0, 0, 0.05); }\n    .Kuser .Kuser-box-one-top .Kuser-portrait {\n      padding: 10px;\n      float: left; }\n      .Kuser .Kuser-box-one-top .Kuser-portrait div {\n        width: 40px;\n        height: 40px;\n        background-color: #58bc58;\n        border-radius: 50%; }\n    .Kuser .Kuser-box-one-top .Kuser-name {\n      padding: 10px;\n      float: left; }\n      .Kuser .Kuser-box-one-top .Kuser-name p:first-child {\n        margin-bottom: 2px;\n        font-size: 16px;\n        color: #000; }\n      .Kuser .Kuser-box-one-top .Kuser-name p:last-child {\n        margin: 0;\n        font-size: 12px;\n        color: #999; }\n  .Kuser .Kuser-box-one-bottom {\n    width: 100%;\n    height: 40px;\n    display: flex; }\n    .Kuser .Kuser-box-one-bottom div {\n      flex: 1;\n      line-height: 40px;\n      text-align: center; }\n      .Kuser .Kuser-box-one-bottom div:nth-of-type(2) {\n        border-left: 1px solid #ddd;\n        border-right: 1px solid #ddd; }\n      .Kuser .Kuser-box-one-bottom div:active {\n        background-color: rgba(0, 0, 0, 0.05); }\n  .Kuser .Kuser-issue, .Kuser .Kuser-discuss, .Kuser .Kuser-cellphone, .Kuser .Kuser-modifydata {\n    padding-left: 20px;\n    height: 50px;\n    line-height: 50px; }\n    .Kuser .Kuser-issue:active, .Kuser .Kuser-discuss:active, .Kuser .Kuser-cellphone:active, .Kuser .Kuser-modifydata:active {\n      background-color: rgba(0, 0, 0, 0.05); }\n  .Kuser .Kuser-issue, .Kuser .Kuser-cellphone {\n    border-bottom: 1px solid #ddd; }\n  .Kuser .Kuser-btn {\n    display: flex; }\n  .Kuser .Kuser-blacklist, .Kuser .Kuser-keyword, .Kuser .Kuser-authority {\n    flex: 1;\n    text-align: center;\n    line-height: 100px; }\n    .Kuser .Kuser-blacklist:active, .Kuser .Kuser-keyword:active, .Kuser .Kuser-authority:active {\n      background-color: rgba(0, 0, 0, 0.05); }\n  .Kuser .Kuser-keyword {\n    border-left: 1px solid #ddd;\n    border-right: 1px solid #ddd; }\n", ""]);
+
+// exports
+
 
 /***/ })
 /******/ ]);
