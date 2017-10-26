@@ -1,18 +1,23 @@
 import React from "react"
 import { connect } from "react-redux"
-
-import { Route , Link } from "react-router-dom"
+import ReactDOM from "react-dom"
+import { HashRouter as Router , Route , Link  } from "react-router-dom"
 import styled from "styled-components"
 
-import Footer from "../components/footer.jsx"
-import Cmore from "../components/Cmore.jsx"
+import { Provider } from "react-redux"
+import Cmorefl from "../components/Cmore_fl.jsx"
+import Cmorefx from "../components/Cmore_fx.jsx"
+import Cmorepl from "../components/Cmore_pl.jsx"
+import Cmoresj from "../components/Cmore_sj.jsx"
+import Cmoreper from "../components/Cmore_person.jsx"
 
-class Home extends React.Component {
+
+
+import Cmore from "../components/Cmore.jsx"
+class Home1 extends React.Component {
     constructor(props){
         super(props);
-        this.state = {
-
-        }
+        
     }
 
     render(){
@@ -21,18 +26,26 @@ class Home extends React.Component {
             font-size:14px;
             color:red;
             position:relative;
+            z-index:1
         `
         return (<Title>
-                <Cmore/>
-                <Footer/>
+                    <Route  exact path="/more" component = {Cmore}></Route>  
+                    <Route  path="/more/fl" component = {Cmorefl}></Route>
+                    <Route  exact path="/more/fx" component = {Cmorefx}></Route>
+                    <Route  path="/more/pl" component = {Cmorepl}></Route>
+                    <Route  path="/more/sj" component = {Cmoresj}></Route>
+                    <Route exact path="/more/fx/per" component = {Cmoreper}></Route>
+                    
             </Title>)
+
     }
 }
 
 export default connect((state)=>{
+    
     return {state}
 },(dispatch)=>{
     return {
 
     }
-})(Home)
+})(Home1)
