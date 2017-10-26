@@ -30,9 +30,9 @@ class Kuser extends React.Component {
 	                    		</div>
 							</div>
                     		<div className="Kuser-box-one-bottom">
-                    			<div>关注</div>
-                    			<div>收藏</div>
-                    			<div>点赞</div>
+                    			<div><a href="#/user/follow">关注</a></div>
+                    			<div><a href="#/user/userissue">收藏</a></div>
+                    			<div><a href="#/user/userissue">点赞</a></div>
                     		</div>
                     	</div>
                     	<div className="Kuser-box">

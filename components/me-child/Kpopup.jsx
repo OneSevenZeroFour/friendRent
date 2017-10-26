@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'; // ES6
 
 import "./Kpopup.scss";
 class Kpopup extends React.Component {
@@ -20,7 +20,11 @@ class Kpopup extends React.Component {
     render() {
         return (
             <div>
-                <div className="Kcover" onClick={this.Kclose} style = {{display:this.props.isShowKside?"block":"none"}}>
+                <ReactCSSTransitionGroup
+                  transitionName="fade"
+                  transitionEnterTimeout={2000}
+                  transitionLeaveTimeout={2000}>
+                {<div key="1" className="Kcover" onClick={this.Kclose} style = {{display:this.props.isShowKside?"block":"none"}}>
                     <div className="Kbox">
                         <div className="Kclose" onClick={this.Kclose}>关闭</div>
                         <div className="Klogo">
@@ -35,8 +39,10 @@ class Kpopup extends React.Component {
                         </div>
                     </div>
                     {this.state.tips!=""?<div className="Klogin-tips">{this.state.tips}</div>:""}	
-                </div>
+                </div>}
+                 </ReactCSSTransitionGroup>
             </div>
+
         )
     }
     submitTel(){

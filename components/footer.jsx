@@ -85,7 +85,7 @@ class Footer extends React.Component {
         return (
             <Div>
                 <div className="foot">
-                <Link to="/home">
+                <Link to="/home/all">
                     <div className="btn">
                         <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 1024 1024" version="1.1"><path fill="#fff" d="M511 147.3L834.3 511H735v392H623V679H399v224H287V511h-99.3L511 147.3m0-84.3L63 567h168v392h224V735h112v224h224V567h168L511 63z"/></svg>
                         <span className="navbtn">首页</span>

@@ -12,7 +12,6 @@ class Kreg extends React.Component {
         this.getTime = this.getTime.bind(this)
         this.toHome = this.toHome.bind(this)
         this.reg = this.reg.bind(this)
-        
     }
     
     render() {
@@ -60,15 +59,13 @@ class Kreg extends React.Component {
     		var password = this.refs.pf.value;
     		axios.get("http://localhost:12345/insert",{params:{tel:tel,password:password}})
     		.then(function (response) {
-    			console.log(response.data)
     			if(response.data=="ok"){
     				clearInterval(self.timer)
-    				window.location.hash = "#/user"
     				//写入cookie
     				var date = new Date();  
 					date.setDate(date.getDate() +100); 
 					document.cookie = "tel="+tel+";expires=" + date;
-					
+					window.location.hash = "#/user"
     			}
     		})
     		
@@ -84,7 +81,7 @@ class Kreg extends React.Component {
     		var now = new Date();
             now.setSeconds(now.getSeconds() + 30); //在当前时间基础上增加30s
             var fistTime = now.getSeconds(); //取得30s后的时间
-            this.timer = setInterval(function (e) {
+            self.timer = setInterval(function (e) {
             	var newTime = new Date();	
             	//如果已经到达时间,则退出定时器
             	if (now.getTime() <= newTime.getTime()) {

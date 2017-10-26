@@ -1,0 +1,88 @@
+.Kfollow{
+    position:fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    .KfollowHead{
+        color:#fff;
+        display: flex;
+        background-color: #474A4f;
+        height: 58px;
+        span{
+            width:70px;
+            padding: 20px;
+            a{
+                color:#fff;
+                text-decoration: none;
+            }
+        }
+        p{
+            flex:1;
+            text-align: center;
+            font-size:20px;
+            line-height: 60px;
+        }
+    }
+
+    .KfollowBody{
+        h4{
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            font-size:16px;
+        }
+        .Kuser-list{
+            list-style:none;
+            padding: 0;
+            margin: 0;
+            border-top:1px solid #ccc;
+            li{
+                height: 70px;
+                line-height: 70px;
+                position:relative;
+                border-bottom:1px solid #ccc;
+                &:nth-of-type(2) .Kuser-logo{
+                    background-color: skyblue;
+                }
+                 &:nth-of-type(3) .Kuser-logo{
+                    background-color: yellow;
+                }
+                .Kuser-logo{
+                    margin-top: 15px;
+                    margin-left: 20px;
+                    margin-right: 20px;
+                    width: 40px;
+                    height: 40px;
+                    border-radius:50%;
+                    background-color: #58bc58;
+                    float: left;
+                }
+                .Kuser-del{
+                    user-select:none;
+                    position:absolute;
+                    right: 20px;
+                    top: 20px;
+                    height: 30px;
+                    line-height: 30px;
+                    &:active{
+                        color:#ff5252;
+                    }
+                }
+                h5{
+                    margin: 0;
+                    padding: 15px 0 10px;
+                    font-size:16px;
+                    color:#474a4f;
+                }
+                h6{
+                    margin: 0;
+                    font-size:14px;
+                    color:#7e848c;
+                }
+            }
+            
+        }
+
+    }
+}
