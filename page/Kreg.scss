@@ -12,6 +12,10 @@
         span{
             width:70px;
             padding: 20px;
+            a{
+                color:#fff;
+                text-decoration: none;
+            }
         }
         p{
             flex:1;
@@ -54,6 +58,9 @@
             border: none;
             margin-top: 20px;
         }
+        input::-webkit-input-placeholder{
+                color: #ccc;
+            }
         .Kinput-first{
             position:relative;
             width: 250px;

@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
-
+import axios from "axios"
+window.axios = axios;
 import store from "./store/store.js"
 import { Provider } from "react-redux"
 import { HashRouter as Router , Route , Link ,Redirect} from "react-router-dom"
@@ -16,14 +17,14 @@ import All from "./components/home-child/all.jsx"
 
 
 
-
-
-
+//console.log(window.location.hash)
+//重定向
+if(window.location.hash=="#/"||window.location.hash=="") window.location.hash = "#/home"
 ReactDOM.render(
     <Router>
         <Provider store={store}>
             <div>
-				<Redirect exact path="/" to="home"/>
+				{/*<Redirect exact path="/" to="home"/>*/}
                 <Route  path="/home" component = {Home}></Route>
                 <Route  path="/show" component = {Show}></Route>
                 <Route  path="/more" component = {More}></Route>

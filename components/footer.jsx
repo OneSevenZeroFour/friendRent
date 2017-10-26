@@ -14,7 +14,7 @@ class Footer extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-        	isLogin:true,
+        	isLogin:false,
         	Url : "#/",
         }
         this.showKside = this.showKside.bind(this);//绑定方法的this
@@ -23,15 +23,19 @@ class Footer extends React.Component {
     showKside(){
 		if(!this.state.isLogin){
 			this.props.dispatch({type:"SETSHOWKSIDE",isShowKside:true})
+		}else{
+			window.location.hash = "#/user"
 		}
     }
-	componentWillMount(){
-		if(this.state.isLogin){
-			this.setState({url:"#/user"})
-		}else{
-			this.setState({url:"javascript:void(0);"})
-		}
-		
+
+	componentDidMount(){
+		var self = this;
+		var cookies = document.cookie.split(";");
+		cookies.forEach(function(item){
+			if(item.split('=')[0]=="tel"){
+				self.setState({isLogin:true})
+			}
+		})
 	}
 	
     render(){
@@ -104,7 +108,7 @@ class Footer extends React.Component {
                         <span className="navbtn">更多</span>
                 	</div>
                 </Link>
-                <a href={this.state.url} >
+                <a>
                     <div className="btn" onClick={this.showKside}>
                         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1024 1024" version="1.1"><path fill="#fff" d="M514.255507 1019.488987c-272.9163 0-496.211454-223.295154-496.211454-496.211454s223.295154-496.211454 496.211454-496.211454 496.211454 223.295154 496.211453 496.211454-223.295154 496.211454-496.211453 496.211454z m0-947.312776c-248.105727 0-451.101322 202.995595-451.101322 451.101322s202.995595 451.101322 451.101322 451.101322 451.101322-202.995595 451.101321-451.101322-202.995595-451.101322-451.101321-451.101322zM685.674009 408.246696c0 96.986784-78.942731 243.594714-175.929516 243.594714s-175.929515-146.60793-175.929515-243.594714 78.942731-175.929515 175.929515-175.929515 175.929515 78.942731 175.929516 175.929515zM442.079295 572.898678h133.07489v232.317181h-133.07489zM514.255507 674.396476c-146.60793 0-270.660793 76.687225-324.792952 191.718061 85.709251 81.198238 200.740088 130.819383 327.048458 130.819384 124.052863 0 239.0837-49.621145 322.537445-128.563877-51.876652-115.030837-178.185022-193.973568-324.792951-193.973568z"/></svg>
                         <span className="navbtn">我的</span>

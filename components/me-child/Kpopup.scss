@@ -10,11 +10,11 @@
     right: 0;
     .Kbox {
         position: absolute;
-        bottom: 0;
+        bottom: 52px;
         height: 300px;
         width: 100%;
         background-color: #474a4f;
-        margin-bottom: 52px;
+
         .Kclose {
             float: right;
             color: #999;
@@ -43,12 +43,16 @@
             padding-top: 20px;
             .Kinput {
                 background-color: transparent;
+                color:#fff;
                 outline: none;
                 display: block;
                 width: 250px;
                 margin: 0 auto;
                 height: 30px;
                 border: none;
+            }
+            input::-webkit-input-placeholder{
+                color: #ccc;
             }
             .Kline,
             .Kline-focus {
@@ -68,5 +72,15 @@
                 margin-top: 20px;
             }
         }
+    }
+    .Klogin-tips{
+        position:absolute;
+        bottom:352px;
+        height: 52px;
+        line-height: 52px;
+        width: 100%;
+        text-align: center;
+        background-color: rgba(0,0,0,0.8);
+        color:#fff;
     }
 }
