@@ -17,7 +17,8 @@ class Kuser extends React.Component {
         return (
                <div>
                     <div className="Kuser">
-                    	<img src="./img/kb2.jpg"/>	
+                    	<img src="./img/kb1.jpg"/>	
+                        <div className="Kuser-bigbox">
                     	<div className="Kuser-box">
                     		<div className="Kuser-box-one-top">
 	                    		<div className="Kuser-portrait">
@@ -48,6 +49,7 @@ class Kuser extends React.Component {
                     		<div className="Kuser-authority">发布权限</div>
                     	</div>
                     	<div className="Kuser-box Kuser-exit" onClick={this.loginOut}>退出当前账号</div>
+                        </div>
                     </div>
                     <Footer/>
                </div>

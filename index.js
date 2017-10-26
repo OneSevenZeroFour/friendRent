@@ -4,7 +4,7 @@ import axios from "axios"
 window.axios = axios;
 import store from "./store/store.js"
 import { Provider } from "react-redux"
-import { HashRouter as Router , Route , Link , Redirect} from "react-router-dom"
+import { HashRouter as Router , Route , Link ,Redirect} from "react-router-dom"
 
 import Home from "./page/home.jsx"
 import Show from "./page/show.jsx"
@@ -35,4 +35,3 @@ ReactDOM.render(
         </Provider>
     </Router>,document.querySelector("#demo")
 )
-

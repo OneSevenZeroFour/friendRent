@@ -41,6 +41,7 @@ class Footer extends React.Component {
     render(){
         var Div = styled.div`
                 position:fixed;
+                z-index:1;
                 width:100%;
                 bottom:0; 
             .foot{
