@@ -1,12 +1,21 @@
 import React from "react"
 import styled from "styled-components"
-
+ 
+import { connect } from "react-redux"
 import { Route , Link } from "react-router-dom"
 
 class Head extends React.Component {
     constructor(props){
         super(props);
+
+        this.state = {
+
+        }
     }
+
+    componentWillReceiveProps(){
+    }
+
 
     render(){
         var Div = styled.div`
@@ -26,6 +35,8 @@ class Head extends React.Component {
                 .hnav{
                     text-align:center;
                     width:60px;
+                    height:100%;
+                    border-bottom:2px solid #474a4f;
                    svg{
                     margin-top:3px;
                     width:26px;
@@ -35,8 +46,7 @@ class Head extends React.Component {
                         display:block;
                         color:#fff;
                     } 
-                }
-                
+                }               
             }
         `
         return (<Div>
@@ -65,10 +75,10 @@ class Head extends React.Component {
                         <span>室友</span>
                     </div>
                     </Link>
-                    <Link to="mark">
-                    <div className="hnav">
+                    <Link to="/home/mark">
+                    <div className="hnav" onClick={this.props.setIsShowList}>
                         <svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 1024 1024" version="1.1"><path fill="#fff" d="M64 288l224 0L288 64 64 64 64 288zM400 960l224 0 0-224-224 0L400 960zM64 960l224 0 0-224L64 736 64 960zM64 624l224 0 0-224L64 400 64 624zM400 624l224 0 0-224-224 0L400 624zM736 64l0 224L960 288 960 64 736 64zM400 288l224 0L624 64l-224 0L400 288zM736 624 960 624l0-224-224 0L736 624zM736 960 960 960l0-224-224 0L736 960z"/></svg>
-                        <span>#标签</span>
+                        <span>#</span>
                     </div>
                     </Link>
                 </div>
@@ -76,4 +86,16 @@ class Head extends React.Component {
     }
 }
 
-export default Head
+export default connect((state)=>{
+    return {state}
+},(dispatch)=>{
+    return {
+        setIsShowList(){
+            console.log(222)
+            dispatch({
+                type:"showList",
+                showList:true
+            })
+        }
+    }
+})(Head)

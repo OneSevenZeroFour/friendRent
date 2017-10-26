@@ -12,19 +12,47 @@ class morefl extends React.Component {
 
     render(){
         var Cfl = styled.div`
-            height:100%;
-            font-size:14px;
-            color:red;
-            position:relative;
+             .header{
+                  
+                top: 0;
+                padding: 0;
+                font-size: 2.0em;
+                width:100%;
+                height:78px;
+                background-color: #474a4f;
+                color: #fff;
+                line-height:78px
+            }
+          .header span:nth-of-type(1){
+            margin-left:50px;
+          }
+          .header span:nth-of-type(2){
+                text-align: center;
+                width: 88%;
+                height: 50px;
+                display: inline-block;
+          }
+          .glyphicon{color:#fff}
+            .section{margin-top:30px;}
+            .flshow{
+                width:40%;
+                height:100px;
+                line-height:50px;
+                text-align:center;
+                float:left;
+                margin:10px 5%;
+                color:black;
+                font-size:1.3em;
+                border-radius:20px;
+                font-weigiht:700
+
+            }
+
         `
         return (<Cfl>
-              
-               <div>
-               		<p className="bg-primary">1</p>
-                    <p className="bg-success">2</p>
-                    <p className="bg-info">3</p>
-                    <p className="bg-warning">4</p>
-                    <p className="bg-danger">5</p>
+              <div className="header"><Link to="/more"><span  className="glyphicon glyphicon-chevron-left"></span></Link><span>分类及标签</span></div>
+               <div className="section">
+               		
 
                </div>
             </Cfl>)
@@ -37,8 +65,11 @@ class morefl extends React.Component {
                 success:function(res){
                     $('.section').html((res.data.list).map(function(data){
                             console.log(data)
-                        return `<div>
-                                  
+                        return `<div id=${data.id} style="background-color:${data.color}" class="flshow">
+                                         #${data.name}
+                                  <p >
+                                       (${data.number}话题) 
+                                  </p>
 
                                 </div>
 

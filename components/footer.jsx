@@ -53,9 +53,6 @@ class Footer extends React.Component {
                 // line-height:60px;
                 .btn{
                     position:relative;
-                    &:hover{
-                        color:red;
-                    }
                 }
                 .midbtn{
                     width:52px;
