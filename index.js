@@ -20,20 +20,6 @@ import All from "./components/home-child/all.jsx"
 
 
 ReactDOM.render(
-<<<<<<< HEAD
-        <Router>
-            <Provider store={store}>
-                <div>
-                    <Redirect to="/home/all"/>
-                    <Route  path="/home" component = {Home}></Route>
-                    <Route  path="/show" component = {Show}></Route>
-                    <Route  path="/more" component = {More}></Route>
-                    <Route  path="/me" component = {Me}></Route>
-                </div>               
-            </Provider>
-        </Router>,document.querySelector("#demo")
-    )
-=======
     <Router>
         <Provider store={store}>
             <div>
@@ -48,4 +34,4 @@ ReactDOM.render(
         </Provider>
     </Router>,document.querySelector("#demo")
 )
->>>>>>> 11ec5f50eb925671fef53d26b5bbf9137878b5e7
+
