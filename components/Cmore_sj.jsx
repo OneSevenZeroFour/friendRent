@@ -119,7 +119,7 @@ class moresj extends React.Component {
                
             </Csj1>)
     }
-    componentDidMount(){
+componentDidMount(){
     function compare(property){
                             return function(a,b){
                                 var value1 = a[property];
@@ -158,7 +158,7 @@ class moresj extends React.Component {
     
   }
 }
-
+}
 export default connect((state)=>{
     return {state}
 },(dispatch)=>{

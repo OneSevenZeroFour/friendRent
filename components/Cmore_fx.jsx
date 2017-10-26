@@ -9,6 +9,7 @@ import $ from "jquery"
 class morefx extends React.Component {
     constructor(props){
         super(props);
+        console.log(props)
         this.show = function(e){
             var target = e.target
                 $(target).addClass('active').siblings().removeClass('active')
@@ -24,8 +25,7 @@ class morefx extends React.Component {
                         var arr=[]
                             arr.push(res.data)
                         $('.sec').html(arr.map(function(data){
-                                console.log(data)
-
+                             
                             return`
                             <div>   
 
@@ -120,7 +120,7 @@ class morefx extends React.Component {
                         <p id="friend">找朋友</p>
                         <p id="unused">找闲置</p>
                     </div>
-                    <Link to ="fx/per"><div className = "sec" onClick={this.props.setAjaxName}></div></Link>
+                    {/*<Link to ="fx/per">*/}<div className = "sec" onClick={this.props.setAjaxName}></div>{/*</Link>*/}
                     <div >
                          <button id="cBtn" onClick={this.gonext}>下一个</button>
                     </div>
@@ -128,7 +128,7 @@ class morefx extends React.Component {
                </div>
                
             </Csj1>)
-    }
+   }
     componentDidMount(){
   
         $.ajax({
@@ -153,9 +153,9 @@ class morefx extends React.Component {
                 })
         $('#house').addClass('active')
     
-  }
+ 
 }
-
+}
 export default connect((state)=>{
     return {state}
 },(dispatch)=>{

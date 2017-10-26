@@ -21,8 +21,9 @@ import All from "./components/home-child/all.jsx"
 //重定向
 if(window.location.hash=="#/"||window.location.hash=="") window.location.hash = "#/home"
 ReactDOM.render(
-    <Router>
-        <Provider store={store}>
+    <Provider store={store}>
+        <Router>
+       
             <div>
 				{/*<Redirect exact path="/" to="home"/>*/}
                 <Route  path="/home" component = {Home}></Route>
@@ -32,6 +33,7 @@ ReactDOM.render(
                 <Route  path="/reg" component = {Kreg}></Route>
                 <Route  path="/user" component = {Kuser}></Route>
             </div>               
-        </Provider>
-    </Router>,document.querySelector("#demo")
+        
+        </Router>
+    </Provider>,document.querySelector("#demo")
 )
