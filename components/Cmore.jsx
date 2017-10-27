@@ -33,7 +33,7 @@ class Cmore extends React.Component {
 
     render(){
         var Cmore = styled.div`
-            body,ul,li,div{margin:0;padding:0}
+            body,ul,li{margin:0;padding:0}
          	.header{
          		  
 			    top: 0;

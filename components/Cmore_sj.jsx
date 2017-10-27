@@ -158,9 +158,9 @@ componentDidMount(){
     
   }
 }
-}
+
 export default connect((state)=>{
-    return {state}
+    return state
 },(dispatch)=>{
     return {
 
