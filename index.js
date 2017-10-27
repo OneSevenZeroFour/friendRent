@@ -18,7 +18,7 @@ import Kuserissue from "./page/Kuserissue.jsx"
 
 import All from "./components/home-child/all.jsx"
 
-
+import "./css/muse-ui.scss"
 
 //console.log(window.location.hash)
 //重定向
@@ -36,7 +36,7 @@ ReactDOM.render(
                 <Route  path="/reg" component = {Kreg}></Route>
                 <Route exact path="/user" component = {Kuser}></Route>
                 <Route exact path="/user/follow" component = {Kfollow}></Route>
-                <Route exact path="/user/userissue" component = {Kuserissue}></Route>
+                <Route exact path="/user/userissue:id" component = {Kuserissue}></Route>
             </div>               
         
         </Router>

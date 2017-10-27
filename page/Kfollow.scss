@@ -24,13 +24,20 @@
             line-height: 60px;
         }
     }
-
     .KfollowBody{
+        a{
+            text-decoration: none;
+            color:#000;
+        }
         h4{
-            height: 40px;
-            line-height: 40px;
+            margin:0;
+            height: 60px;
+            line-height: 60px;
             text-align: center;
             font-size:16px;
+            &:active{
+                    background-color: rgba(0,0,0,0.05);
+                }
         }
         .Kuser-list{
             list-style:none;
@@ -42,6 +49,9 @@
                 line-height: 70px;
                 position:relative;
                 border-bottom:1px solid #ccc;
+                &:active{
+                    background-color: rgba(0,0,0,0.05);
+                }
                 &:nth-of-type(2) .Kuser-logo{
                     background-color: skyblue;
                 }

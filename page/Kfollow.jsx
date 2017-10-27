@@ -37,7 +37,7 @@ class Kfollow extends React.Component {
                         <span></span>
                     </div>
                     <div className="KfollowBody">
-                        <h4>去看看他们的帖子</h4>
+                        <a href="#/user/userissue1"><h4>去看看他们的帖子</h4></a>
                         <ul className="Kuser-list">{
                             this.state.userList.map((item)=>{
                                 return <li key={item.id}>

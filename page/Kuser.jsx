@@ -17,7 +17,7 @@ class Kuser extends React.Component {
         return (
                <div>
                     <div className="Kuser">
-                    	<img src="./img/kb1.jpg"/>	
+                    	<img src="./img/kb2.jpg"/>	
                         <div className="Kuser-bigbox">
                     	<div className="Kuser-box">
                     		<div className="Kuser-box-one-top">
@@ -31,8 +31,8 @@ class Kuser extends React.Component {
 							</div>
                     		<div className="Kuser-box-one-bottom">
                     			<div><a href="#/user/follow">关注</a></div>
-                    			<div><a href="#/user/userissue">收藏</a></div>
-                    			<div><a href="#/user/userissue">点赞</a></div>
+                    			<div><a href="#/user/userissue3">收藏</a></div>
+                    			<div><a href="#/user/userissue2">点赞</a></div>
                     		</div>
                     	</div>
                     	<div className="Kuser-box">
