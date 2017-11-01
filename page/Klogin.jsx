@@ -48,10 +48,10 @@ class Klogin extends React.Component {
     			
     			if(response.data=="ok"){
     				self.props.dispatch({ type: "SETSHOWKSIDE", isShowKside: false })
-    				window.location.hash="#/user"
     				var date = new Date();  
 					date.setDate(date.getDate() +100); 
 					document.cookie = "tel="+tel+";expires=" + date;
+          window.location.hash="#/user"
     			}
     			else if(response.data=="fail"){
     				self.setState({isShowErr:true},()=>{

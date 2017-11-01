@@ -45,6 +45,9 @@ class Kreg extends React.Component {
     componentDidMount(){
     	this.getTime();
     }
+    componentWillUnmount(){
+        clearInterval(this.timer)
+    }
     toHome(){
     	clearInterval(this.timer)
     	window.location.hash="#/home"
@@ -68,7 +71,6 @@ class Kreg extends React.Component {
 					window.location.hash = "#/user"
     			}
     		})
-    		
     	}
     	
     	

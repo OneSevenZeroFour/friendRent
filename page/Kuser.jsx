@@ -25,7 +25,7 @@ class Kuser extends React.Component {
 	                    			<div></div>
 	                    		</div>
 	                    		<div className="Kuser-name">
-	                    			<p>laoyao(老姚)</p>
+	                    			<p>laoyao</p>
 	                    			<p>手机号:{this.state.tel}</p>
 	                    		</div>
 							</div>
